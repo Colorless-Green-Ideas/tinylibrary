@@ -1,9 +1,10 @@
 from django.conf.urls import patterns, url
-from views import index, book, CreateBook
+import views
+
 urlpatterns = patterns('',
-                       url(r'^(?P<pk>\d+)/$', book.as_view(), name="book-detail"),
-                       url(r'^new/$', CreateBook.as_view()),
-                       url(r'^$', index.as_view()),
-
-
+                       url(r'^(?P<pk>\d+)/$', views.book.as_view(), name="book-detail"),
+                       url(r'^new/$', views.CreateBook.as_view(), name="book-new"),
+                       url(r'^$', views.index.as_view(), name="book-home"),
+                       url(r'^(?P<pk>\d+)/update/$', views.UpdateBook.as_view(), name="book-update"),
+                       url(r'^(?P<pk>\d+)/delete/$', views.DeleteBook.as_view(), name="book-delete"),
                        )

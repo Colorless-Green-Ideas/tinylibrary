@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 from models import Book
 # Create your views here.
@@ -13,4 +14,10 @@ class book(DetailView):
 
 class CreateBook(CreateView):
     model = Book
-    
+
+class UpdateBook(UpdateView):
+    model = Book
+
+class DeleteBook(DeleteView):
+    model = Book
+    success_url = reverse_lazy("tinylibrary:book-home")
