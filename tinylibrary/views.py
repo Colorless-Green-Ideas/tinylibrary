@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
-from models import Book
+from models import Book, Person
 # Create your views here.
 
 class index(ListView):
@@ -20,4 +20,8 @@ class UpdateBook(UpdateView):
 
 class DeleteBook(DeleteView):
     model = Book
+    success_url = reverse_lazy("tinylibrary:book-home")
+
+class CreatePerson(CreateView):
+    model = Person
     success_url = reverse_lazy("tinylibrary:book-home")
