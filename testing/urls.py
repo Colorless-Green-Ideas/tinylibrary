@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
+from tinylibrary.views import webhook_payload
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,4 +9,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^books/', include('tinylibrary.urls', namespace='tinylibrary')),
+    url(r'^payload/', webhook_payload),
 )
