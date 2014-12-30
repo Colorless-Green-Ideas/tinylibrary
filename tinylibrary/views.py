@@ -32,6 +32,10 @@ class CreatePerson(CreateView):
 
 @csrf_exempt
 def webhook_payload(request):
-    print request.body
+    if request.CONTENT_TYPE != "application/json":
+        return HttpResponse(status=500)
+    data = json.loads(request.body)
+    event_type = request.META['X-Github-Event']
+    print data
     # print payload
     return HttpResponse(status=200)
