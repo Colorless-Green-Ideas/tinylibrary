@@ -12,21 +12,29 @@
 <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-header-panel/core-header-panel.html'%}">
 <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-icons/core-icons.html'%}">
 <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-icon-button/paper-icon-button.html'%}">
-
+<style type="text/css">
+    html{
+        font-family:sans-serif;
+    }
+    paper-button{
+        background: #526E9C;
+        color: white;
+        font-weight: bolder;
+    }
+</style>
 
     {% block head %}{% endblock %}
 </head>
 <body>
 <core-scaffold>
 <core-header-panel navigation flex mode="seamed">
-<core-toolbar>TinyLibrary</core-toolbar>
+<core-toolbar style="background-color: #526E9C; color: #fff;">TinyLibrary</core-toolbar>
     <core-menu theme="core-light-theme">
       <core-item icon="settings" label="item1"></core-item>
       <core-item icon="settings" label="item2"></core-item>
     </core-menu>
 </core-header-panel>
-      <div tool>Title</div>
-    <div class="content"> {% block body %}{% endblock %}</div>
+{% block body %}{% endblock %}
 </core-scaffold>
 </body>
 </html>
