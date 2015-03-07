@@ -1,11 +1,32 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="{% static 'tinylibrary/components/bower_components/webcomponentsjs/webcomponents.js' %}"></script>
+    {# If this ^ is moved to bottom of page... it barfs thanks google. #}
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/polymer/polymer.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-scaffold/core-scaffold.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-toolbar/core-toolbar'%}">
+<link rel="import" href="{% static 'tinylibrary/components/bower_components/core-header-panel/core-header-panel.html'%}">
+<link rel="import" href="{% static 'tinylibrary/components/bower_components/core-icons/core-icons.html'%}">
+<link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-icon-button/paper-icon-button.html'%}">
+
+
     {% block head %}{% endblock %}
 </head>
 <body>
-    {% block body %}{% endblock %}
+<core-scaffold>
+<core-header-panel navigation flex mode="seamed">
+<core-toolbar>TinyLibrary</core-toolbar>
+    <core-menu theme="core-light-theme">
+      <core-item icon="settings" label="item1"></core-item>
+      <core-item icon="settings" label="item2"></core-item>
+    </core-menu>
+</core-header-panel>
+      <div tool>Title</div>
+    <div class="content"> {% block body %}{% endblock %}</div>
+</core-scaffold>
 </body>
 </html>
