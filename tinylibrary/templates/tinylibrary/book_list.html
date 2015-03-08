@@ -2,7 +2,6 @@
 {% load staticfiles %}
 
 {% block head %}
-<link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-button/paper-button.html'%}">
 {% endblock %}
 {% block body %}
 <div tool>My Twisted Books</div>
@@ -18,6 +17,5 @@
     </ul>
     <a href="{% url 'tinylibrary:book-new' %}"><paper-button raised>New Book</paper-button></a>
     <a href="{% url 'tinylibrary:person-create' %}"><paper-button raised>New Person</paper-button></a>
-</div>
 </div>
 {% endblock %}
