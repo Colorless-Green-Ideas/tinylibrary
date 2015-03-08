@@ -5,6 +5,11 @@ from models import Book
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
+        labels={'title': '',
+                'isbn': '',
+                'author': '',}
         widgets = {
-            'title': PaperTextInput
+            'title': PaperTextInput,
+            'isbn' : PaperTextInput,
+            'author': PaperTextInput,
         }
