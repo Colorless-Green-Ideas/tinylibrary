@@ -1,6 +1,6 @@
 from django import forms
 from widgets import PaperTextInput
-from models import Book
+from models import Book, Person
 
 class BookForm(forms.ModelForm):
     class Meta:
@@ -13,3 +13,8 @@ class BookForm(forms.ModelForm):
             'isbn' : PaperTextInput,
             'author': PaperTextInput,
         }
+class PersonForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        labels={'name':'',}
+        widgets={'name': PaperTextInput,}

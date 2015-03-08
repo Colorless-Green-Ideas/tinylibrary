@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 import json
 
 from models import Book, Person
-from forms import BookForm
+from forms import BookForm, PersonForm
 # Create your views here.
 
 class index(ListView):
@@ -29,6 +29,7 @@ class DeleteBook(DeleteView):
     success_url = reverse_lazy("tinylibrary:book-home")
 
 class CreatePerson(CreateView):
+    form_class = PersonForm
     model = Person
     success_url = reverse_lazy("tinylibrary:book-home")
 
