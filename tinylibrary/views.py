@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 import json
 
 from models import Book, Person
+from forms import BookForm
 # Create your views here.
 
 class index(ListView):
@@ -17,6 +18,7 @@ class book(DetailView):
     queryset = Book.objects.all()
 
 class CreateBook(CreateView):
+    form_class = BookForm
     model = Book
 
 class UpdateBook(UpdateView):
