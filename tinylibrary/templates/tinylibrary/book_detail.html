@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+{% block tool_title%}Hello, this is book{%endblock%}
+
 {% block body %}
     <h1>{{book.title}}</h1>
     <h2>{{book.author}}</h2>
     <h2>Held By: {{book.held_by}}</h2>
-
+    <a href="{%url 'tinylibrary:book-delete' book.id %}">Delete Book</a>
 {% endblock %}

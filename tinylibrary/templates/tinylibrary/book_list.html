@@ -3,19 +3,19 @@
 
 {% block head %}
 {% endblock %}
+
+{% block tool_title%}My Twisted Books{%endblock%}
+
 {% block body %}
-<div tool>My Twisted Books</div>
-<div class="content" fit> 
-    <ul>
-    {% if object_list%}
-        {% for book in object_list %}
-            <a href="{{book.get_absolute_url}}">
-            <li>{{ book.title }} &mdash; {{book.author}} &ndash; Held by: {{book.held_by}}</li>
-            </a>
-        {% endfor %}
-    {%endif%}
-    </ul>
-    <a href="{% url 'tinylibrary:book-new' %}"><paper-button raised>New Book</paper-button></a>
-    <a href="{% url 'tinylibrary:person-create' %}"><paper-button raised>New Person</paper-button></a>
-</div>
+<ul>
+{% if object_list%}
+    {% for book in object_list %}
+        <a href="{{book.get_absolute_url}}">
+        <li>{{ book.title }} &mdash; {{book.author}} &ndash; Held by: {{book.held_by}}</li>
+        </a>
+    {% endfor %}
+{%endif%}
+</ul>
+<a href="{% url 'tinylibrary:book-new' %}"><paper-button raised>New Book</paper-button></a>
+<a href="{% url 'tinylibrary:person-create' %}"><paper-button raised>New Person</paper-button></a>
 {% endblock %}

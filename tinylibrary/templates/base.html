@@ -29,6 +29,7 @@
 
     {% block head %}{% endblock %}
 </head>
+
 <body>
 <core-scaffold>
 <core-header-panel navigation flex mode="seamed">
@@ -38,7 +39,10 @@
       <core-item icon="settings" label="item2"></core-item>
     </core-menu>
 </core-header-panel>
-{% block body %}{% endblock %}
+<div tool>{% block tool_title%}Many Books Wow{%endblock%}</div>
+    <div class="content" fit> 
+    {% block body %}{% endblock %}
+    </div>
 </core-scaffold>
 </body>
 </html>
