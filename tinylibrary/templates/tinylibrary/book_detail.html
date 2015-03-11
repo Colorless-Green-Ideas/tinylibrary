@@ -6,4 +6,5 @@
     <h2>{{book.author}}</h2>
     <h2>Held By: {{book.held_by}}</h2>
     <a href="{%url 'tinylibrary:book-delete' book.id %}">Delete Book</a>
+    <a href="{%url 'tinylibrary:book-update' book.id %}">Edit Book</a>
 {% endblock %}
