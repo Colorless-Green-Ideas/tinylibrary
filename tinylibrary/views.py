@@ -22,6 +22,7 @@ class CreateBook(CreateView):
     model = Book
 
 class UpdateBook(UpdateView):
+    form_class = BookForm
     model = Book
 
 class DeleteBook(DeleteView):

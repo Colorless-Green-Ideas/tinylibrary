@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 {% block tool_title%}Hello, this is book{%endblock%}
 
+{% block menu %}
+<core-menu theme="core-light-theme">
+      <core-item icon="create" label="Edit Book"><a href="{%url 'tinylibrary:book-update' book.id %}"></a></core-item>
+      <core-item icon="delete" label="Delete Book"><a href="{%url 'tinylibrary:book-delete' book.id %}"></a></core-item>
+
+</core-menu>
+{% endblock %}
+
 {% block body %}
     <h1>{{book.title}}</h1>
     <h2>{{book.author}}</h2>
     <h2>Held By: {{book.held_by}}</h2>
-    <a href="{%url 'tinylibrary:book-delete' book.id %}">Delete Book</a>
-    <a href="{%url 'tinylibrary:book-update' book.id %}">Edit Book</a>
 {% endblock %}

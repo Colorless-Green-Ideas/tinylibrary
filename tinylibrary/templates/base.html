@@ -14,11 +14,14 @@
 <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-icon-button/paper-icon-button.html'%}">
 <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-input/paper-input-decorator.html'%}">
 <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-button/paper-button.html'%}">
+<link rel="import" href="{% static 'tinylibrary/components/bower_components/core-item/core-item.html'%}">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 
 <style type="text/css">
     html{
-        font-family:sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
     paper-button{
         background: #526E9C;
@@ -34,10 +37,12 @@
 <core-scaffold>
 <core-header-panel navigation flex mode="seamed">
 <core-toolbar style="background-color: #526E9C; color: #fff;"><a href="{% url 'tinylibrary:book-home'%}" style="color: #fff;">TinyLibrary</a></core-toolbar>
-    <core-menu theme="core-light-theme">
-      <core-item icon="settings" label="item1"></core-item>
-      <core-item icon="settings" label="item2"></core-item>
+    {%block menu%}
+    <core-menu>
+      <core-item label="item1"></core-item>
+      <core-item label="item2"></core-item>
     </core-menu>
+    {%endblock%}
 </core-header-panel>
 <div tool>{% block tool_title%}Many Books Wow{%endblock%}</div>
     <div class="content" fit> 
