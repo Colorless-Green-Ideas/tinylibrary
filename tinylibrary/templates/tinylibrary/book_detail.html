@@ -2,11 +2,12 @@
 {% block tool_title%}Hello, this is book{%endblock%}
 
 {% block menu %}
-<core-menu theme="core-light-theme">
-      <core-item icon="create" label="Edit Book"><a href="{%url 'tinylibrary:book-update' book.id %}"></a></core-item>
-      <core-item icon="delete" label="Delete Book"><a href="{%url 'tinylibrary:book-delete' book.id %}"></a></core-item>
-
-</core-menu>
+  <core-item icon="create" label="Edit Book">
+    <a href="{%url 'tinylibrary:book-update' book.id %}"></a>
+  </core-item>
+  <core-item icon="delete" label="Delete Book">
+    <a href="{%url 'tinylibrary:book-delete' book.id %}"></a>
+  </core-item>
 {% endblock %}
 
 {% block body %}

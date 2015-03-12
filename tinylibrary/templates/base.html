@@ -37,12 +37,12 @@
 <core-scaffold>
 <core-header-panel navigation flex mode="seamed">
 <core-toolbar style="background-color: #526E9C; color: #fff;"><a href="{% url 'tinylibrary:book-home'%}" style="color: #fff;">TinyLibrary</a></core-toolbar>
-    {%block menu%}
     <core-menu>
-      <core-item label="item1"></core-item>
-      <core-item label="item2"></core-item>
+            {% block menu %}
+            {% endblock %}
+      <core-item icon="folder-shared" label="Source"><a href="https://github.com/Colorless-Green-Ideas/tinylibrary/"></a></core-item>
+      <core-item icon="help" label="Help"></core-item>
     </core-menu>
-    {%endblock%}
 </core-header-panel>
 <div tool>{% block tool_title%}Many Books Wow{%endblock%}</div>
     <div class="content" fit> 
