@@ -9,12 +9,14 @@
     <link rel="import" href="{% static 'tinylibrary/components/bower_components/polymer/polymer.html'%}">
     <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-scaffold/core-scaffold.html'%}">
     <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-toolbar/core-toolbar.html'%}">
-<link rel="import" href="{% static 'tinylibrary/components/bower_components/core-header-panel/core-header-panel.html'%}">
-<link rel="import" href="{% static 'tinylibrary/components/bower_components/core-icons/core-icons.html'%}">
-<link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-icon-button/paper-icon-button.html'%}">
-<link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-input/paper-input-decorator.html'%}">
-<link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-button/paper-button.html'%}">
-<link rel="import" href="{% static 'tinylibrary/components/bower_components/core-item/core-item.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-header-panel/core-header-panel.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-icons/core-icons.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-icon-button/paper-icon-button.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-input/paper-input-decorator.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-button/paper-button.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-item/core-item.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-item/paper-item.html'%}">
+    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-selector/core-selector.html'%}">
 
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
@@ -33,7 +35,7 @@
     {% block head %}{% endblock %}
 </head>
 
-<body>
+<body unresolved>
 <core-scaffold>
 <core-header-panel navigation flex mode="seamed">
 <core-toolbar style="background-color: #526E9C; color: #fff;"><a href="{% url 'tinylibrary:book-home'%}" style="color: #fff;">TinyLibrary</a></core-toolbar>

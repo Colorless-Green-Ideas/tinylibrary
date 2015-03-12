@@ -7,14 +7,17 @@
 {% block tool_title%}My Twisted Books{%endblock%}
 
 {% block body %}
-<ul>
+<core-selector>
 {% if object_list%}
     {% for book in object_list %}
+    <paper-item>
         <a href="{{book.get_absolute_url}}">
-        <li>{{ book.title }} &mdash; {{book.author}} &ndash; Held by: {{book.held_by}}</li>
+        {{ book.title }} &mdash; {{book.author}} &ndash; Held by: {{book.held_by}}
         </a>
+    </paper-item>
     {% endfor %}
 {%endif%}
+</core-selector>
 </ul>
 <a href="{% url 'tinylibrary:book-new' %}"><paper-button raised>New Book</paper-button></a>
 <a href="{% url 'tinylibrary:person-create' %}"><paper-button raised>New Person</paper-button></a>
