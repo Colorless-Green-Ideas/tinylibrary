@@ -20,11 +20,9 @@ class book(DetailView):
 class CreateBook(CreateView):
     form_class = BookForm
     model = Book
-    fields = '__all__'
 
 class UpdateBook(UpdateView):
     form_class = BookForm
-    fields = '__all__'
     model = Book
 
 class DeleteBook(DeleteView):
