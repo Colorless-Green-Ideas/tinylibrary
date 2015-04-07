@@ -3,13 +3,7 @@ from django.forms.models import modelform_factory
 from widgets import PaperTextInput
 from models import Book, Person
 
-def mangle_form(form):
-    "Utility to mangle forms into paperinputs, untested"
-    for field in form.fields:
-        if type(field.widget) is forms.widgets.Textarea:
-            field.widget = PaperTextInput()
-            field.label = ''
-    return form
+
 
 class BookForm(forms.ModelForm):
     class Meta:
