@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load polymerdep %}
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <script src="{% static 'tinylibrary/components/bower_components/webcomponentsjs/webcomponents.js' %}"></script>
-    {# If this ^ is moved to bottom of page... it barfs thanks google. #}
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/polymer/polymer.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-scaffold/core-scaffold.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-toolbar/core-toolbar.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-header-panel/core-header-panel.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-icons/core-icons.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-icon-button/paper-icon-button.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-input/paper-input-decorator.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-button/paper-button.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-item/core-item.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/paper-item/paper-item.html'%}">
-    <link rel="import" href="{% static 'tinylibrary/components/bower_components/core-selector/core-selector.html'%}">
+    <script src="{% static 'materialdjango/components/bower_components/webcomponentsjs/webcomponents.js' %}"></script>
+    {{ "polymer/polymer.html" | dep}}
+    {{ "core-scaffold/core-scaffold.html" | dep}}
+    {{ "core-toolbar/core-toolbar.html"| dep }}
+    {{ 'core-header-panel/core-header-panel.html'| dep }}
+    {{ "core-icons/core-icons.html"| dep }}
+    {{ "paper-icon-button/paper-icon-button.html"| dep }}
+    {{ "paper-input/paper-input-decorator.html"| dep }}
+    {{ "paper-button/paper-button.html"| dep }}
+    {{ "core-item/core-item.html"| dep }}
+    {{ "paper-item/paper-item.html"| dep }}
+    {{ "core-selector/core-selector.html"| dep }}
 
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
@@ -48,7 +49,9 @@
 </core-header-panel>
 <div tool>{% block tool_title%}Many Books Wow{%endblock%}</div>
     <div class="content" fit> 
-    {% block body %}{% endblock %}
+    {% block body %}
+        <a href="{% url 'tinylibrary:book-home' %}">Take Me to the books</a>
+    {% endblock %}
     </div>
 </core-scaffold>
 </body>

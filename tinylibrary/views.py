@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.urlresolvers import reverse_lazy
 
 import json
@@ -35,6 +35,9 @@ class CreatePerson(CreateView):
     form_class = PersonForm
     model = Person
     success_url = reverse_lazy("tinylibrary:book-home")
+
+class HomeView(TemplateView):
+    template_name = "base.html"
 
 @csrf_exempt
 def webhook_payload(request):
