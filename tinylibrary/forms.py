@@ -14,6 +14,7 @@ def mangle_form(form):
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
+        fields = '__all__'
         labels={'title': '',
                 'isbn': '',
                 'author': '',}
@@ -25,6 +26,7 @@ class BookForm(forms.ModelForm):
 class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
+        fields = '__all__'
         labels={'name':'',}
         widgets={'name': PaperTextInput,}
 
