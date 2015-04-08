@@ -1,6 +1,7 @@
 from django import forms
-from django.forms.models import modelform_factory
-from widgets import PaperTextInput
+
+from materialdjango.widgets import PaperTextInput
+
 from models import Book, Person
 
 
