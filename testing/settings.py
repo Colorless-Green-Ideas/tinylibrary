@@ -38,9 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'tinylibrary',
     'materialdjango',
+    "opbeat.contrib.django",
 )
 
 MIDDLEWARE_CLASSES = (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -95,3 +97,10 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+OPBEAT = {
+    "ORGANIZATION_ID": os.getenv("OP_ORGANIZATION_ID", "5872022992004ab8a7e2161a7444e660"),
+    "APP_ID": os.getenv("OP_APP_ID", "bae9329951"),
+    "SECRET_TOKEN": os.getenv("OP_SECRET_TOKEN","4ff70b2065e48ed5b8687f9ea45ced8cb0ce4a12"),
+    'DEBUG': True,
+}
