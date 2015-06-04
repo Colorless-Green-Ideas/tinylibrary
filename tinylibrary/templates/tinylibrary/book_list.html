@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "materialdjango/vinyl-siding.html" %}
 {% load staticfiles %}
 
 {% block head %}
@@ -7,18 +7,16 @@
 {% block tool_title%}My Twisted Books{%endblock%}
 
 {% block body %}
-<core-selector>
 {% if object_list%}
     {% for book in object_list %}
-    <paper-item>
+    <paper-material>
         <a href="{{book.get_absolute_url}}">
         {{ book.title }} &mdash; {{book.author}} &ndash; Held by: {{book.held_by}}
         </a>
-    </paper-item>
+    </paper-material>
     {% endfor %}
 {%endif%}
-</core-selector>
-</ul>
+
 <a href="{% url 'tinylibrary:book-new' %}"><paper-button raised>New Book</paper-button></a>
 <a href="{% url 'tinylibrary:person-create' %}"><paper-button raised>New Person</paper-button></a>
 {% endblock %}
