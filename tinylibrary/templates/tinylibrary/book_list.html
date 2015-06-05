@@ -1,15 +1,15 @@
-{% extends "materialdjango/vinyl-siding.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
-{% block head %}
-{% endblock %}
+
+
 
 {% block tool_title%}My Twisted Books{%endblock%}
 
 {% block body %}
 {% if object_list%}
     {% for book in object_list %}
-    <paper-material>
+    <paper-material class="card">
         <a href="{{book.get_absolute_url}}">
         {{ book.title }} &mdash; {{book.author}} &ndash; Held by: {{book.held_by}}
         </a>

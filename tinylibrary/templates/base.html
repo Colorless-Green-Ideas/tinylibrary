@@ -1,58 +1,36 @@
-<!DOCTYPE html>
+{% extends "materialdjango/vinyl-siding.html" %}
+
 {% load staticfiles %}
 {% load polymerdep %}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <script src="{% static 'materialdjango/components/bower_components/webcomponentsjs/webcomponents.js' %}"></script>
-    {{ "polymer/polymer.html" | dep}}
-    {{ "core-scaffold/core-scaffold.html" | dep}}
-    {{ "core-toolbar/core-toolbar.html"| dep }}
-    {{ 'core-header-panel/core-header-panel.html'| dep }}
-    {{ "core-icons/core-icons.html"| dep }}
-    {{ "paper-icon-button/paper-icon-button.html"| dep }}
-    {{ "paper-input/paper-input-decorator.html"| dep }}
-    {{ "paper-button/paper-button.html"| dep }}
-    {{ "core-item/core-item.html"| dep }}
-    {{ "paper-item/paper-item.html"| dep }}
-    {{ "core-selector/core-selector.html"| dep }}
-
-<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-
-
-<style type="text/css">
-    html{
-        font-family: 'Roboto', sans-serif;
+    
+{% block head %}
+<title>{% block title %}TinyLibrary{% endblock %}</title>
+<style>
+    paper-material.card{
+        padding: 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
-    paper-button{
-        background: #526E9C;
-        color: white;
-        font-weight: bolder;
+    a{
+        color:black;
+        text-decoration: none;
     }
-</style>
-
-    {% block head %}{% endblock %}
-</head>
-
-<body unresolved>
-<core-scaffold>
-<core-header-panel navigation flex mode="seamed">
-<core-toolbar style="background-color: #526E9C; color: #fff;"><a href="{% url 'tinylibrary:book-home'%}" style="color: #fff;">TinyLibrary</a></core-toolbar>
-    <core-menu>
-            {% block menu %}
-            {% endblock %}
-      <core-item icon="folder-shared" label="Source"><a href="https://github.com/Colorless-Green-Ideas/tinylibrary/"></a></core-item>
-      <core-item icon="help" label="Help"></core-item>
-    </core-menu>
-</core-header-panel>
-<div tool>{% block tool_title%}Many Books Wow{%endblock%}</div>
-    <div class="content" fit> 
-    {% block body %}
-        <a href="{% url 'tinylibrary:book-home' %}">Take Me to the books</a>
+    {% block css %}
     {% endblock %}
-    </div>
-</core-scaffold>
-</body>
-</html>
+</style>
+{% endblock %}
+
+{% block tool_title%}Welcome to TinyLibrary!{% endblock %}
+
+
+{% block menu %}
+    <li><a href="https://github.com/Colorless-Green-Ideas/tinylibrary/">Source</a></li>
+    <core-item icon="folder-shared" label="Source"></core-item>
+    <core-item icon="help" label="Help"></core-item>
+{% endblock %}
+
+ 
+{% block body %}
+    <a href="{% url 'tinylibrary:book-home' %}">Take Me to the books</a>
+{% endblock %}
