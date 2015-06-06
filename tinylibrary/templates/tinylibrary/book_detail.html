@@ -3,12 +3,14 @@
 
 {% block menu %}
  {{ block.super }}
-  <core-item icon="create" label="Edit Book">
-    <a href="{%url 'tinylibrary:book-update' book.id %}"></a>
-  </core-item>
-  <core-item icon="delete" label="Delete Book">
-    <a href="{%url 'tinylibrary:book-delete' book.id %}"></a>
-  </core-item>
+  <paper-item><iron-icon icon="create"></iron-icon> <a href="{%url 'tinylibrary:book-update' book.id %}">
+      Edit Book
+  </a>
+  </paper-item>
+  <paper-item><iron-icon icon="delete"></iron-icon> <a href="{%url 'tinylibrary:book-delete' book.id %}">
+      Delete Book
+  </a>
+  </paper-item>
 {% endblock %}
 
 {% block body %}
