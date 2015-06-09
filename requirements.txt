@@ -1,5 +1,5 @@
 Django==1.8.2
--e git+git@github.com:Colorless-Green-Ideas/MaterialDjango.git@b20d7da333ade62b342f2a51e88bd060594e6f70#egg=MaterialDjango-polymer-1.0
+-e git+git://github.com/Colorless-Green-Ideas/MaterialDjango.git@polymer-1.0#egg=MaterialDjango-polymer-1.0
 argparse==1.2.1
 dj-database-url==0.3.0
 dj-static==0.0.6
