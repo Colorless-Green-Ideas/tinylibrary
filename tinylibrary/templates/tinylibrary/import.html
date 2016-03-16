@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block tool_title%}Import Books from CSV{% endblock %}
+
+{% block body %}
+<form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Import" />
+</form>
+{%endblock%}

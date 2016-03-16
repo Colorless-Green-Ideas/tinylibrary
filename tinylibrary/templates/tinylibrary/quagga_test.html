@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{%block tool_title %}Quagga ISBN Scan Test{%endblock%}
+
+{% block extra_head %}
+<script type="text/javascript" src="{% static 'tinylibrary/bower_components/quagga/dist/quagga.js' %}"></script>
+{% endblock %}
+
+
+{% block css %}
+#yourElement canvas{
+  display: none;
+}
+{%endblock css%}
+{% block body %}
+<article>
+    <div id='yourElement'></div>
+    <ol id="isbnList">
+        {%verbatim%}
+    <template id="t" is="dom-bind">
+    <template is="dom-repeat" items="{{data}}">
+        <div><span>{{item}}</span> </div>
+    </template>
+
+  </template>
+        {% endverbatim %}
+    </ol>
+</article>
+<script type="text/javascript">
+    var ProcessISBNs = function() {
+      new Set(document.querySelector("#t").data)
+    }
+    Quagga.init({
+    inputStream : {
+      name : "Live",
+      type : "LiveStream",
+      target: document.querySelector('#yourElement')    // Or '#yourElement' (optional)
+    },
+    decoder : {
+      readers : ["ean_8_reader", "ean_reader"]
+    }
+  }, function(err) {
+      if (err) {
+          console.log(err);
+          return
+      }
+      console.log("Initialization finished. Ready to start");
+      Quagga.onDetected(function(data){
+        console.log(data.codeResult.code)
+        document.querySelector("#t").push('data', data.codeResult.code)
+    })
+      document.querySelector("#t").data = []
+      Quagga.start();
+  });
+</script>
+{%endblock%}

@@ -1,0 +1,22 @@
+{
+  "name": "tinylibrary",
+  "homepage": "https://github.com/Colorless-Green-Ideas/tinylibrary",
+  "authors": [
+    "jrabbit <jackjrabbit@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "AGPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tinylibrary/static/tinylibrary/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "quagga": "~0.9.1"
+  }
+}

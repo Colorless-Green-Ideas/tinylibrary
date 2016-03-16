@@ -25,3 +25,5 @@ class PersonForm(forms.ModelForm):
         labels={'name':'',}
         widgets={'name': PaperTextInput,}
 
+class ImportCSVForm(forms.Form):
+    file = forms.FileField()

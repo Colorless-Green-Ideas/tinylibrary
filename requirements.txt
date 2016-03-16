@@ -1,11 +1,11 @@
-Django==1.8.2
--e git+git://github.com/Colorless-Green-Ideas/MaterialDjango.git@polymer-1.0#egg=MaterialDjango-polymer-1.0
+Django==1.9.4
+-e git+git://github.com/Colorless-Green-Ideas/MaterialDjango.git@master#egg=MaterialDjango-master
 argparse==1.2.1
 dj-database-url==0.3.0
 dj-static==0.0.6
 django-toolbelt==0.0.1
 gunicorn==19.1.1
-opbeat==2.1
+opbeat==3.3
 psycopg2==2.5.4
 requests==2.6.0
 static3==0.5.1

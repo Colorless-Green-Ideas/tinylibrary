@@ -6,7 +6,7 @@
     
 {% block head %}
 <title>{% block title %}TinyLibrary{% endblock %}</title>
-<style>
+<style is="custom-style">
     paper-material.card{
         padding: 16px;
         margin-top: 5px;
@@ -23,9 +23,22 @@
         margin-left: 10px;
         font-size: 20px;
     }
+    .nav{
+        background: #E0E0E0;
+        @apply(--layout-vertical);
+    }
+    paper-button{
+        background: var(--default-primary-color);
+    }
+    .content{
+        padding: 10px;
+    }
+
     {% block css %}
     {% endblock %}
 </style>
+{% block extra_head  %}
+{% endblock %}
 {% endblock %}
 
 {% block tool_title%}Welcome to TinyLibrary!{% endblock %}
