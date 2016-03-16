@@ -20,3 +20,10 @@
 <a href="{% url 'tinylibrary:book-new' %}"><paper-button raised>New Book</paper-button></a>
 <a href="{% url 'tinylibrary:person-create' %}"><paper-button raised>New Person</paper-button></a>
 {% endblock %}
+
+
+{% block menu %}
+ {{ block.super }}
+  <paper-item><iron-icon icon="create"></iron-icon> <a href="{%url 'tinylibrary:import-csv'%}">Import Booklist (CSV)</a>
+  </paper-item>
+{% endblock %}

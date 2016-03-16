@@ -10,8 +10,13 @@ class Book(models.Model):
     held_by = models.ForeignKey('Person')
     def get_absolute_url(self):
         return reverse('tinylibrary:book-detail', args=[self.pk])
+    @classmethod
+    def from_gr_csv_dict(cls, data, held_by):
+        return cls(title=data['title'], author=data['authors'], isbn=data["isbn13"], held_by=held_by)
+    def __unicode__(self):
+        return  u"'{}' - {}  Held by: {}".format(self.title, self.author, self.held_by)
 
 class Person(models.Model):
     name = models.CharField(max_length=1024)
-    def __str__(self):
+    def __unicode__(self):
         return self.name

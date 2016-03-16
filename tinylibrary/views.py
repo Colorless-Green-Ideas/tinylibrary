@@ -54,7 +54,10 @@ class ImportCSV(FormView):
         if form.is_valid():
             csv_data = self.request.FILES['file']
             for row in csv.DictReader(csv_data):
-                print row
+                held_by = form.cleaned_data['held_by']
+                b = Book.from_gr_csv_dict(row, held_by)
+                print b
+                b.save()
         return super(ImportCSV, self).form_valid(form)
 
 @csrf_exempt

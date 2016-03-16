@@ -27,3 +27,4 @@ class PersonForm(forms.ModelForm):
 
 class ImportCSVForm(forms.Form):
     file = forms.FileField()
+    held_by = forms.ModelChoiceField(queryset=Person.objects.all())
