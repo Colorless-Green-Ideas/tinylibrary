@@ -38,11 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'tinylibrary',
     'materialdjango',
-    "opbeat.contrib.django",
 )
 
 MIDDLEWARE_CLASSES = (
-    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,6 +54,27 @@ ROOT_URLCONF = 'testing.urls'
 
 WSGI_APPLICATION = 'testing.wsgi.application'
 
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug': DEBUG,
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+            ],
+        },
+    },
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -97,10 +116,3 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-OPBEAT = {
-    "ORGANIZATION_ID": os.getenv("OP_ORGANIZATION_ID", "5872022992004ab8a7e2161a7444e660"),
-    "APP_ID": os.getenv("OP_APP_ID", "bae9329951"),
-    "SECRET_TOKEN": os.getenv("OP_SECRET_TOKEN","4ff70b2065e48ed5b8687f9ea45ced8cb0ce4a12"),
-    'DEBUG': True,
-}
