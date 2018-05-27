@@ -22,9 +22,7 @@ SECRET_KEY = '@ar_42_5#yoetj8%o*uz+(j7d-5i%t020xlz8zj3+(=0%u2aat'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0", "localhost"]
 
 
 # Application definition

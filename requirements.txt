@@ -1,5 +1,5 @@
-Django==1.9.4
--e git+git://github.com/Colorless-Green-Ideas/MaterialDjango.git@master#egg=MaterialDjango-master
+Django==1.11.13
+-e git+git://github.com/Colorless-Green-Ideas/MaterialDjango.git@master#egg=materialdjango
 argparse==1.2.1
 dj-database-url==0.3.0
 dj-static==0.0.6

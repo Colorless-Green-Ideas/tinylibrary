@@ -8,7 +8,7 @@ MaterialDjango-master = {git = "git://github.com/Colorless-Green-Ideas/MaterialD
 argparse = "==1.2.1"
 dj-database-url = "*"
 gunicorn = "*"
-"psycopg2" = "*"
+"psycopg2-binary" = "*"
 requests = "*"
 whitenoise = "*"
 xmltodict = "==0.9.2"

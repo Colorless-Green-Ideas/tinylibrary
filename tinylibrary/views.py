@@ -3,13 +3,13 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.views.generic.edit import FormView
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 import csv
 import json
 
-from models import Book, Person
-from forms import BookForm, PersonForm, ImportCSVForm
+from .models import Book, Person
+from .forms import BookForm, PersonForm, ImportCSVForm
 # Create your views here.
 
 class index(ListView):
@@ -56,7 +56,7 @@ class ImportCSV(FormView):
             for row in csv.DictReader(csv_data):
                 held_by = form.cleaned_data['held_by']
                 b = Book.from_gr_csv_dict(row, held_by)
-                print b
+                print(b)
                 b.save()
         return super(ImportCSV, self).form_valid(form)
 
@@ -66,6 +66,6 @@ def webhook_payload(request):
         return HttpResponse(status=500)
     data = json.loads(request.body)
     event_type = request.META['X-Github-Event']
-    print data
+    print(data)
     # print payload
     return HttpResponse(status=200)

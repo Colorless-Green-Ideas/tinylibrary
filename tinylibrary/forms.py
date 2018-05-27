@@ -2,7 +2,7 @@ from django import forms
 
 from materialdjango.widgets import PaperTextInput
 
-from models import Book, Person
+from .models import Book, Person
 
 
 

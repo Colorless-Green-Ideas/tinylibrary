@@ -1,5 +1,7 @@
 from django.conf.urls import url
-import views
+from . import views
+
+app_name = 'tinylibrary'
 
 urlpatterns = [
                url(r'^(?P<pk>\d+)/$', views.book.as_view(), name="book-detail"),

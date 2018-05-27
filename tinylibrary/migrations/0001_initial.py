@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='book',
             name='held_by',
-            field=models.ForeignKey(to='tinylibrary.Person'),
+            field=models.ForeignKey(to='tinylibrary.Person', on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]
