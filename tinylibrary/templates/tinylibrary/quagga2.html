@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{%block tool_title %}Quagga ISBN Scan Test{%endblock%}
+
+{% block extra_head %}
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+<script type="module" src="{% static 'tinylibrary/bundle.js' %}"></script>
+<script type="text/javascript" src="{% static 'tinylibrary/node_modules/quagga/dist/quagga.js' %}"></script>
+
+<script type="text/javascript">
+  function click_scanner() {
+    s = document.querySelector("tl-scanner")
+    s.StartScanner()  }
+</script>
+
+{% endblock %}
+
+
+{% block css %}
+{%endblock css%}
+
+{% block body %}
+<tl-scanner></tl-scanner>
+<button on-click="click_scanner()">Lets get scanning</button>
+
+<article>
+    <ol id="isbnList">
+    </ol>
+</article>
+
+{%endblock%}

@@ -1,0 +1,34 @@
+{
+  "name": "tinylibrary",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.1",
+    "quagga": "^0.12.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Colorless-Green-Ideas/tinylibrary.git"
+  },
+  "author": "Jack Laxson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Colorless-Green-Ideas/tinylibrary/issues"
+  },
+  "homepage": "https://github.com/Colorless-Green-Ideas/tinylibrary#readme"
+}
