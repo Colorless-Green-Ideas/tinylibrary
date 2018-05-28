@@ -12,10 +12,10 @@ from .models import Book, Person
 from .forms import BookForm, PersonForm, ImportCSVForm
 # Create your views here.
 
-class index(ListView):
+class IndexView(ListView):
     model = Book
 
-class book(DetailView):
+class DetailBook(DetailView):
     context_object_name = 'book'
     queryset = Book.objects.all()
 
@@ -40,11 +40,12 @@ class HomeView(TemplateView):
     template_name = "base.html"
 
 class QuaggaTest(TemplateView):
-    template_name = "tinylibrary/quagga_test.html"
+    template_name = "tinylibrary/quagga2.html"
 
 class CreateBookFromISBN(CreateView):
     model = Book
     fields = ['isbn']
+
 
 class ImportCSV(FormView):
     form_class = ImportCSVForm

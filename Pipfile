@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 MaterialDjango-master = {git = "git://github.com/Colorless-Green-Ideas/MaterialDjango.git", editable = true, ref = "master"}
-argparse = "==1.2.1"
 dj-database-url = "*"
 gunicorn = "*"
 "psycopg2-binary" = "*"
