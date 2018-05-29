@@ -37,10 +37,13 @@ class CreatePerson(CreateView):
     success_url = reverse_lazy("tinylibrary:book-home")
 
 class HomeView(TemplateView):
-    template_name = "base.html"
+    template_name = "modern.html"
 
 class QuaggaTest(TemplateView):
     template_name = "tinylibrary/quagga2.html"
+
+class ButtonsTest(TemplateView):
+    template_name = "tinylibrary/buttons.html"
 
 class CreateBookFromISBN(CreateView):
     model = Book

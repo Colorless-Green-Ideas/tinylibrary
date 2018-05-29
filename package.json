@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "@material/button": "^0.35.0",
+    "@material/card": "^0.35.0",
+    "@material/mwc-button": "^0.1.1",
+    "@material/mwc-checkbox": "^0.1.1",
+    "@material/mwc-icon": "^0.1.1",
     "@polymer/lit-element": "^0.5.1",
     "quagga": "^0.12.1"
   },
@@ -14,7 +19,9 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
+    "rollup-plugin-collect-sass": "^1.0.9",
     "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-sass": "^0.7.2",
     "webpack": "^4.9.1",
     "webpack-cli": "^2.1.4"
   },

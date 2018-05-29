@@ -1,9 +1,11 @@
-{% extends "base.html" %}
+{% extends "modern.html" %}
+{% load staticfiles %}
+
 {% block tool_title%}New/Edit Book{% endblock %}
 
 {% block body %}
 <form action="" method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Create" />
+    <mwc-button class="mwc-submit">Create</mwc-button>
 </form>
 {%endblock%}

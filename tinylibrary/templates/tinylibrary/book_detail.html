@@ -1,20 +1,16 @@
-{% extends "base.html" %}
+{% extends "modern.html" %}
 {% block tool_title%}Hello, this is book{%endblock%}
 
 {% block menu %}
- {{ block.super }}
-  <paper-item><iron-icon icon="create"></iron-icon> <a href="{%url 'tinylibrary:book-update' book.id %}">
-      Edit Book
-  </a>
-  </paper-item>
-  <paper-item><iron-icon icon="delete"></iron-icon> <a href="{%url 'tinylibrary:book-delete' book.id %}">
-      Delete Book
-  </a>
-  </paper-item>
+  <div class="nav-item"><mwc-icon>create</mwc-icon><a href="{%url 'tinylibrary:book-update' book.id %}">Edit Book</a></div>
+
+
+  <div class="nav-item"><mwc-icon>delete</mwc-icon><a href="{%url 'tinylibrary:book-delete' book.id %}">Delete Book</a></div>
+
 {% endblock %}
 
 {% block body %}
     <h1>{{book.title}}</h1>
-    <h2>{{book.author}}</h2>
-    <h2>Held By: {{book.held_by}}</h2>
+    <h4>{{book.author}}</h4>
+    <h4>Held By: {{book.held_by}}</h4>
 {% endblock %}

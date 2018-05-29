@@ -1,29 +1,29 @@
-{% extends "base.html" %}
+{% extends "modern.html" %}
 {% load staticfiles %}
-{% load polymerdep %}
-
-
 
 {% block tool_title%}My Twisted Books{%endblock%}
 
 {% block body %}
 {% if object_list%}
     {% for book in object_list %}
-    <paper-material class="card">
-        <a href="{{book.get_absolute_url}}">
+    <div class="card mdc-card">
+        <div class="mdc-card-content"><a href="{{book.get_absolute_url}}">
         {{ book.title }} &mdash; {{book.author}} &ndash; Held by: {{book.held_by}}
         </a>
-    </paper-material>
+    	</div>
+    </div>
     {% endfor %}
 {%endif%}
 
-<a href="{% url 'tinylibrary:book-new' %}"><paper-button raised>New Book</paper-button></a>
-<a href="{% url 'tinylibrary:person-create' %}"><paper-button raised>New Person</paper-button></a>
+<p><a href="{% url 'tinylibrary:book-new' %}">
+	<mwc-button>New Book</mwc-button>
+</a></p>
+<p><a href="{% url 'tinylibrary:person-create' %}">
+	<mwc-button>New Person</mwc-button>
+</a></p>
 {% endblock %}
 
 
 {% block menu %}
- {{ block.super }}
-  <paper-item><iron-icon icon="create"></iron-icon> <a href="{%url 'tinylibrary:import-csv'%}">Import Booklist (CSV)</a>
-  </paper-item>
+<div class="nav-item"><mwc-icon>create</mwc-icon><a href="{%url 'tinylibrary:import-csv'%}">Import Booklist (CSV)</a></div>
 {% endblock %}

@@ -1,0 +1,5 @@
+{# <paper-input-container label='{0}' attr-for-value="value">
+            <label>{{ widget.name| title }}</label>
+            <input is="iron-input" name="{{ widget.name }}" {% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %} {% include "django/forms/widgets/attrs.html" %} >
+</paper-input-container> #}
+

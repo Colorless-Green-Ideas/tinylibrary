@@ -11,6 +11,7 @@ urlpatterns = [
                url(r'^(?P<pk>\d+)/delete/$', views.DeleteBook.as_view(), name="book-delete"),
                url(r'^newPerson/$', views.CreatePerson.as_view(), name="person-create"),
                url(r'^quagga/$', views.QuaggaTest.as_view(), name='quagga-test'),
+               url(r'^button/$', views.ButtonsTest.as_view(), name='button-test'),
                url(r'^fromISBN/$', views.CreateBookFromISBN.as_view(), name='from-isbn'),
                url(r'^import_csv/$', views.ImportCSV.as_view(), name='import-csv'),
 ]

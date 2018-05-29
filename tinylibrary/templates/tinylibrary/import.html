@@ -1,13 +1,11 @@
-{% extends "base.html" %}
+{% extends "modern.html" %}
 {% load staticfiles %}
 
 {% block tool_title%}Import Books from CSV{% endblock %}
-{% block extra_head %}
-<link rel="import" href="{% static 'materialdjango/paper-button-submit.html' %}">
-{% endblock %}
+
 {% block body %}
 <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" is="paper-button-submit">Import</button>
+    <mwc-button class="mwc-submit">Create</mwc-button>
 </form>
 {%endblock%}

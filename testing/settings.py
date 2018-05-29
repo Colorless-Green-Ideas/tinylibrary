@@ -34,6 +34,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.forms',
     'tinylibrary',
     'materialdjango',
 )
@@ -73,6 +74,9 @@ TEMPLATES = [
         },
     },
 ]
+
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

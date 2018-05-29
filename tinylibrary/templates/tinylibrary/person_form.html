@@ -1,10 +1,11 @@
-{% extends "base.html" %}
-{%block tool_title %}Person{%endblock%}
+{% extends "modern.html" %}
+{% block tool_title %}Person{% endblock %}
+{% load staticfiles %}
 
 {%block body%}
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" is="paper-button-submit">Create</button>
+    <mwc-button class="mwc-submit">Create</mwc-button>
 </form>
 {%endblock%}

@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buttons!</title>
+	<script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+	<script type="module" src="{% static 'tinylibrary/bundle.js' %}"></script>
+
+
+</head>
+<body>
+<a href="{% url 'tinylibrary:person-create' %}">aaaa
+</a>
+<mwc-button>Click Here!</mwc-button>
+
+
+</body>
+</html>
+
