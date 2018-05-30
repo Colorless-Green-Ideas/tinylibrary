@@ -1,6 +1,7 @@
 import csv
 import json
 import logging
+import io
 
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -63,12 +64,17 @@ class ImportCSV(FormView):
     def form_valid(self, form):
         if form.is_valid():
             csv_data = self.request.FILES['file']
-            logger.info(type(csv_data))
-            for row in csv.DictReader(csv_data.read().decode("utf-8"):
-                held_by = form.cleaned_data['held_by']
-                b = Book.from_gr_csv_dict(row, held_by)
-                print(b)
-                b.save()
+
+            if csv_data.multiple_chunks:
+                csv_data.seek(0)
+                # https://andromedayelton.com/2017/04/25/adventures-with-parsing-django-uploaded-csv-files-in-python3/
+                for row in csv.DictReader(io.StringIO(csv_data.read().decode('utf-8'))):
+                    held_by = form.cleaned_data['held_by']
+                    b = Book.from_gr_csv_dict(row, held_by)
+                    print(b)
+                    b.save()
+            else:
+                raise IOError("file too big")
         return super(ImportCSV, self).form_valid(form)
 
 @csrf_exempt

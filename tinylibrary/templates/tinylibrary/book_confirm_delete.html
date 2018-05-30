@@ -1,8 +1,8 @@
-{% extends "materialdjango/vinyl-siding.html" %}
+{% extends "modern.html" %}
 {% block tool_title%}451°{%endblock%}
 {% block body%}
 <form action="" method="post">{% csrf_token %}
     <p>Are you sure you want to delete "{{ object.title }}"?</p>
-    <input type="submit" value="Confirm" />
+    <mwc-button class="mwc-submit">Confirm</mwc-button>
 </form>
 {%endblock%}

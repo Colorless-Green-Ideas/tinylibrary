@@ -1,6 +1,8 @@
+import logging
 from django.urls import reverse
 from django.db import models
 
+logger = logging.getLogger(__name__)
 
 class Book(models.Model):
     title = models.CharField(max_length=1024)
@@ -11,9 +13,14 @@ class Book(models.Model):
         return reverse('tinylibrary:book-detail', args=[self.pk])
     @classmethod
     def from_gr_csv_dict(cls, data, held_by):
-        return cls(title=data['title'], author=data['authors'], isbn=data["isbn13"], held_by=held_by)
+        logger.info(data)
+        if len(data["ISBN13"]) > 13 and data["ISBN13"].startswith('="'):
+            isbn13 = data["ISBN13"][2:-2]
+        else:
+            isbn13 = data["ISBN13"]
+        return cls(title=data['Title'], author=data['Author'], isbn=isbn13, held_by=held_by)
     def __str__(self):
-        return  u"'{}' - {}  Held by: {}".format(self.title, self.author, self.held_by)
+        return  "'{}' - {}  Held by: {}".format(self.title, self.author, self.held_by)
 
 class Person(models.Model):
     name = models.CharField(max_length=1024)

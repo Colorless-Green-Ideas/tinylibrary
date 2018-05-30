@@ -1,7 +1,7 @@
 import {LitElement, html} from "https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module"
 
 
-class TlScanner extends LitElement {
+export class TlScanner extends LitElement {
 
     // Public property API that triggers re-render (synced with attributes)
     static get properties() {
@@ -13,29 +13,59 @@ class TlScanner extends LitElement {
     ProcessISBNs() {
         new Set(this.shadowRoot.querySelector("#t").data)
     }
-    StartScanner(){
+    StartScanner() {
+        let placeholder = this.shadowRoot.querySelector("#yourElement")
+        console.log(placeholder)
         Quagga.init({
             inputStream : {
-                name : "Live",
-                type : "LiveStream",
-                target: this.shadowRoot.querySelector("#yourElement")
+              name : "Live",
+              type : "LiveStream",
+              target: placeholder
             },
             decoder : {
-                readers : ["ean_8_reader", "ean_reader"]
-            }
-        }, function(err) {
-            if (err) {
-                console.log(err)
-                return
-            }
-            console.log("Initialization finished. Ready to start")
-        })
+              readers : ["ean_8_reader", "ean_reader"],
+              multiple: true,
+
+            },
+            locate: true,
+          }, function(err) {
+              if (err) {
+                  console.log(err);
+                  return
+              }
+              console.log("Initialization finished. Ready to start");
+
+              Quagga.start();
+
+          });
         Quagga.onDetected(function(data){
-            console.log(data.codeResult.code)
-            this.shadowRoot.querySelector("#t").push("data", data.codeResult.code)
-        })
-        this.shadowRoot.querySelector("#t").data = []
-        Quagga.start()
+          console.log(data.codeResult.code)
+
+        });
+
+        // Quagga.init({
+        //     inputStream : {
+        //         name : "Live",
+        //         type : "LiveStream",
+        //         target: placeholder
+        //     },
+        //     decoder : {
+        //         readers : ["ean_8_reader", "ean_reader"]
+        //     }
+        // }
+        // , function(err) {
+        //     if (err) {
+        //         console.log(err)
+        //         return
+        //     }
+        //     console.log("Initialization finished. Ready to start")
+        
+        //     Quagga.onDetected(function(data){
+        //         console.log(data.codeResult.code)
+        //         this.shadowRoot.querySelector("#t").push("data", data.codeResult.code)
+        //     })
+        //     this.shadowRoot.querySelector("#t").data = []
+        //     Quagga.start()})
     }
     constructor() {
         super()
