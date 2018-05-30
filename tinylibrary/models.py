@@ -15,7 +15,7 @@ class Book(models.Model):
     def from_gr_csv_dict(cls, data, held_by):
         logger.info(data)
         if len(data["ISBN13"]) > 13 and data["ISBN13"].startswith('="'):
-            isbn13 = data["ISBN13"][2:-2]
+            isbn13 = data["ISBN13"][2:-1]
         else:
             isbn13 = data["ISBN13"]
         return cls(title=data['Title'], author=data['Author'], isbn=isbn13, held_by=held_by)
