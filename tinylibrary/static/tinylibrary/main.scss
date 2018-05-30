@@ -43,6 +43,14 @@ main {
   margin-top: 64px;
   padding: 16px;
   margin-left: $nav-size;
+  div.isbn-display{
+  display: flex;
+  flex-direction: row;
+    pre{
+      font-size: 8pt;
+      margin: 0;
+    }
+  }
 }
 mwc-icon {
   margin: 0 16px;

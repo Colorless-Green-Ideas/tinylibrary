@@ -11,9 +11,10 @@ export default function do_binds() {
   		document.forms[0].submit()
   	})
     }
-    document.querySelector("mwc-button.scanner-start").addEventListener("click", click_scanner)
-    document.querySelector("mwc-button.scanner-stop").addEventListener("click", stop_scanner)
-
+    let startbtn = document.querySelector("mwc-button.scanner-start")
+    if (startbtn) {startbtn.addEventListener("click", click_scanner)}
+    let stopbtn = document.querySelector("mwc-button.scanner-stop")
+	if (stopbtn){stopbtn.addEventListener("click", stop_scanner)}
 }
 
 do_binds()
