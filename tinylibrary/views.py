@@ -1,16 +1,19 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
-from django.views.generic.edit import FormView
-from django.urls import reverse_lazy
-
 import csv
 import json
+import logging
 
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  TemplateView, UpdateView)
+from django.views.generic.edit import FormView
+
+from .forms import BookForm, ImportCSVForm, PersonForm
 from .models import Book, Person
-from .forms import BookForm, PersonForm, ImportCSVForm
-# Create your views here.
+
+logger = logging.getLogger(__name__)
 
 class IndexView(ListView):
     model = Book
@@ -39,6 +42,9 @@ class CreatePerson(CreateView):
 class HomeView(TemplateView):
     template_name = "modern.html"
 
+class HelpView(TemplateView):
+    template_name ="tinylibrary/help.html"
+
 class QuaggaTest(TemplateView):
     template_name = "tinylibrary/quagga2.html"
 
@@ -57,7 +63,8 @@ class ImportCSV(FormView):
     def form_valid(self, form):
         if form.is_valid():
             csv_data = self.request.FILES['file']
-            for row in csv.DictReader(csv_data):
+            logger.info(type(csv_data))
+            for row in csv.DictReader(csv_data.read().decode("utf-8"):
                 held_by = form.cleaned_data['held_by']
                 b = Book.from_gr_csv_dict(row, held_by)
                 print(b)

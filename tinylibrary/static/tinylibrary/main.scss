@@ -1,9 +1,10 @@
 body {
   transition: opacity ease-in 0.2s;
 }
+$primary: #25a59a;
 
 header {
-  background-color: #6200ee;
+  background-color: $primary;
   position: fixed;
   top: 0;
   left: 0;
@@ -29,6 +30,12 @@ header {
   }
 }
 
+mwc-button{
+  --mdc-theme-on-primary: white;
+  --mdc-theme-primary: #e9437a;
+  --mdc-theme-on-secondary: white;
+  --mdc-theme-secondary: #e9437a; //pink
+}
 
 $nav-size: 185px;
 
@@ -62,7 +69,7 @@ nav{
 	flex-direction: column;
 	align-items: left;
 	width: $nav-size;
-	background: var(--mdc-theme-secondary, #ffff72);
+	background: var(--mdc-theme-secondary, #E1E2E1);
 	left: 0;
   position: absolute;
   min-height: 100%;

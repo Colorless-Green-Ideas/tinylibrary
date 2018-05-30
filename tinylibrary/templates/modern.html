@@ -36,8 +36,8 @@
     {% endblock tool_title %}
   </header>
   <nav>
-    <div class="nav-item"><mwc-icon>folder_shared</mwc-icon><a href="https://github.com/Colorless-Green-Ideas/tinylibrary/">Source</a></div>
-    <div class="nav-item"><mwc-icon>help</mwc-icon>Help</div>
+    <a href="https://github.com/Colorless-Green-Ideas/tinylibrary/"><div class="nav-item"><mwc-icon>folder_shared</mwc-icon>Source</div></a>
+    <a href="{% url 'tinylibrary:help' %}"><div class="nav-item"><mwc-icon>help</mwc-icon>Help</div></a>
     {% block menu %}
     {% endblock %}
   </nav>
@@ -45,7 +45,7 @@
     {% block body %}
     <h1>Welcome to Tinylibrary</h1>
     <h2>a showcase of materialdjango/polymer/webcomponents</h2>
-    <a href="{% url 'tinylibrary:book-home' %}"><h3>Go to the books</h3></a>
+    <a href="{% url 'tinylibrary:book-home' %}"><mwc-button rasied>Go to the books</mwc-button></a>
     {% endblock body %}
   </main>
 

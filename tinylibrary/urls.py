@@ -1,4 +1,6 @@
 from django.conf.urls import url
+from django.urls import include, path
+
 from . import views
 
 app_name = 'tinylibrary'
@@ -14,4 +16,5 @@ urlpatterns = [
                url(r'^button/$', views.ButtonsTest.as_view(), name='button-test'),
                url(r'^fromISBN/$', views.CreateBookFromISBN.as_view(), name='from-isbn'),
                url(r'^import_csv/$', views.ImportCSV.as_view(), name='import-csv'),
+               path('help', views.HelpView.as_view(), name="help"),
 ]

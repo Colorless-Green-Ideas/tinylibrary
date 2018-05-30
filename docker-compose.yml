@@ -1,5 +1,5 @@
 web:
-    image: tinylib:py3
+    build: .
     links:
         - db
     ports:
