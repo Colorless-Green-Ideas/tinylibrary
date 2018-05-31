@@ -13,5 +13,6 @@
     <h1>{{book.title}}</h1>
     <h4>{{book.author}}</h4>
     <h4>Held By: {{book.held_by}}</h4>
+    <img src="http://covers.openlibrary.org/b/isbn/{{book.isbn}}-M.jpg"></img>
     <div class="isbn-display"><small>wc</small><a href="https://www.worldcat.org/search?qt=wikipedia&q=isbn%3A{{book.isbn}}"><pre>{{book.isbn}}</pre></a></div>
 {% endblock %}
