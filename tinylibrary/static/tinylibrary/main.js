@@ -14,15 +14,15 @@ export default function do_binds() {
     let startbtn = document.querySelector("mwc-button.scanner-start")
     if (startbtn) {startbtn.addEventListener("click", click_scanner)}
     let stopbtn = document.querySelector("mwc-button.scanner-stop")
-	if (stopbtn){stopbtn.addEventListener("click", stop_scanner)}
+    if (stopbtn){stopbtn.addEventListener("click", stop_scanner)}
 }
 
 do_binds()
 
 
 function stop_scanner(e){
-	console.log("trying to turn off quagga")
-	Quagga.stop()
+    console.log("trying to turn off quagga")
+    Quagga.stop()
 }
 
 function click_scanner(e) {

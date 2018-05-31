@@ -18,30 +18,30 @@ export class TlScanner extends LitElement {
         console.log(placeholder)
         Quagga.init({
             inputStream : {
-              name : "Live",
-              type : "LiveStream",
-              target: placeholder
+                name : "Live",
+                type : "LiveStream",
+                target: placeholder
             },
             decoder : {
-              readers : ["ean_8_reader", "ean_reader"],
-              multiple: true,
+                readers : ["ean_8_reader", "ean_reader"],
+                multiple: true,
 
             },
             locate: true,
-          }, function(err) {
-              if (err) {
-                  console.log(err);
-                  return
-              }
-              console.log("Initialization finished. Ready to start");
+        }, function(err) {
+            if (err) {
+                console.log(err)
+                return
+            }
+            console.log("Initialization finished. Ready to start")
 
-              Quagga.start();
+            Quagga.start()
 
-          });
+        })
         Quagga.onDetected(function(data){
-          console.log(data.codeResult.code)
+            console.log(data.codeResult.code)
 
-        });
+        })
 
         // Quagga.init({
         //     inputStream : {
