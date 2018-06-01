@@ -59,3 +59,4 @@ tinylibrary/static/tinylibrary/bower_components/
 tinylibrary/static/tinylibrary/.sass-cache/
 .mypy_cache/
 tinylibrary/static/tinylibrary/bundle.js
+misc/ipython/

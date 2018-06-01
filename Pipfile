@@ -12,6 +12,7 @@ requests = "*"
 whitenoise = "*"
 xmltodict = "*"
 Django = "==2.0.5"
+attrs = "*"
 
 [dev-packages]
 

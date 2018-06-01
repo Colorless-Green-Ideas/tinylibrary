@@ -23,8 +23,8 @@ class Book(models.Model):
         return cls(title=data['Title'], author=data['Author'], isbn=isbn13, held_by=held_by)
     @classmethod
     def from_isbn(cls, isbn):
-        data = fetch_data(isbn)
-        return cls(isbn=isbn)
+        classification = fetch_data(isbn)
+        return cls(isbn=isbn, lcc_section=classification)
 
     def __str__(self):
         return  "'{}' - {}  Held by: {}".format(self.title, self.author, self.held_by)
