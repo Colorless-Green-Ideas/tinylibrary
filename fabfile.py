@@ -15,3 +15,8 @@ def lint():
 def mk_migrations():
     "make migrations"
     local('docker-compose exec web pipenv run python manage.py makemigrations')
+
+@task
+def debug():
+    "We can use ipython 6+ on python3"
+    local("docker-compose --log-level ERROR run -v$PWD/misc/ipython:/root/.ipython  --rm -u root web bash -c 'pipenv run pip install ipython && pipenv run python manage.py shell'")
