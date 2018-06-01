@@ -7,9 +7,9 @@ import {Icon} from "@material/mwc-icon"
 
 export default function do_binds() {
     if (document.forms.length > 0) {
-  	document.querySelector("mwc-button.mwc-submit").addEventListener("click", function(e){
-  		document.forms[0].submit()
-  	})
+    document.querySelector("mwc-button.mwc-submit").addEventListener("click", function(e){
+        document.forms[0].submit()
+    })
     }
     let startbtn = document.querySelector("mwc-button.scanner-start")
     if (startbtn) {startbtn.addEventListener("click", click_scanner)}

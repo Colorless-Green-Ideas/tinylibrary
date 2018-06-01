@@ -22,9 +22,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "rollup-plugin-collect-sass": "^1.0.9",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-sass": "^0.7.2",
-    "webpack": "^4.9.1",
-    "webpack-cli": "^2.1.4"
+    "rollup-plugin-sass": "^0.7.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
