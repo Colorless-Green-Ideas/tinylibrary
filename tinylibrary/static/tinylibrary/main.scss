@@ -81,15 +81,21 @@ nav{
 	left: 0;
   position: absolute;
   min-height: 100%;
+  mwc-icon{
+    margin: 0;
+    align-self: center
+  }
   a{
     text-decoration: none;
     color: black;
   }
   div.nav-item {
-    align-items: flex-end;
+    display: flex;
+    align-items: center;
     margin: 7px;
-    font-family: "Roboto Mono", monospace;
+    // font-family: "Roboto Mono", monospace;
     -webkit-font-smoothing: antialiased;
     flex-direction: row;
+    // justify-content: left;
   }
 }

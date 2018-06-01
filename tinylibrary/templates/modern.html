@@ -37,8 +37,12 @@
     {% endblock tool_title %}
   </header>
   <nav>
-    <a href="https://github.com/Colorless-Green-Ideas/tinylibrary/"><div class="nav-item"><mwc-icon>folder_shared</mwc-icon>Source</div></a>
-    <a href="{% url 'tinylibrary:help' %}"><div class="nav-item"><mwc-icon>help</mwc-icon>Help</div></a>
+    <a href="https://github.com/Colorless-Green-Ideas/tinylibrary/"><div class="nav-item"><mwc-icon>folder_shared</mwc-icon><span>Source</span></div></a>
+    <a href="{% url 'tinylibrary:help' %}"><div class="nav-item"><mwc-icon>help</mwc-icon><span>Help</span></div></a>
+    <a href="{%url 'tinylibrary:import-csv'%}"><div class="nav-item"><mwc-icon>create</mwc-icon><span>Import Booklist (CSV)</span></div></a>
+    <a href="{%url 'tinylibrary:from-isbn'%}"><div class="nav-item"><mwc-icon>create</mwc-icon><span>ISBN only</span></div></a>
+      <a href="{%url 'tinylibrary:quagga-test'%}"><div class="nav-item"><mwc-icon>camera_rear</mwc-icon><span>Scan Books</span></div></a>
+
     {% block menu %}
     {% endblock %}
   </nav>

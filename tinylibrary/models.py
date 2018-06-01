@@ -1,7 +1,10 @@
 import logging
-from django.urls import reverse
+
 from django.db import models
+from django.urls import reverse
+
 from .util import fetch_data
+
 logger = logging.getLogger(__name__)
 
 
