@@ -3,8 +3,8 @@ import json
 import logging
 import io
 
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
@@ -52,9 +52,25 @@ class QuaggaTest(TemplateView):
 class ButtonsTest(TemplateView):
     template_name = "tinylibrary/buttons.html"
 
+def httpcats(status):
+    return redirect("https://http.cat/%s" % status)
+
 class CreateBookFromISBN(CreateView):
     model = Book
-    fields = ['isbn']
+    fields = ['isbn', 'held_by']
+
+    def form_valid(self, form):
+        logger.info(form.cleaned_data)
+        #make the object from isbn
+        isbn = form.cleaned_data['isbn']
+        if len(isbn) in [7,13]:
+            b = Book.from_isbn(isbn)
+            b.held_by = form.cleaned_data['held_by']
+            b.save()
+            return HttpResponseRedirect(reverse_lazy("tinylibrary:book-home"))
+        else:
+            logger.error("ISBN is non-standard")
+            return httpcats(411)
 
 
 class ImportCSV(FormView):
