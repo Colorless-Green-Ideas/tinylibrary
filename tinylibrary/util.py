@@ -1,9 +1,8 @@
 import logging
-import requests
-import xmltodict
 from collections import OrderedDict
 import attr
-
+import requests
+import xmltodict
 
 logger = logging.getLogger(__name__)
 PREFERED_SYSTEM = "lcc" # Library of Congress categorization system
@@ -30,15 +29,13 @@ def _check_classify(xmldict: OrderedDict) -> None:
         logger.info(xmldict['classify']['response']['@code'])
         logger.debug(xmldict)
         raise Exception("Bad status code from OCLC Classify")
-    else:
-        return
 
 
 def _get_reccs(owi:str, isbn:str) -> ClassificationResult:
     payload = {"summary": "True", 'owi': owi}
     r = requests.get('http://classify.oclc.org/classify2/Classify' , params=payload)
     r.raise_for_status()
-    tree = xmltodict.parse(r.text)
+    tree: OrderedDict = xmltodict.parse(r.text)
     _check_classify(tree)
     try:
         sfa = tree['classify']['recommendations'][PREFERED_SYSTEM]['mostPopular']['@sfa']
@@ -51,7 +48,7 @@ def fetch_data(isbn: str) -> ClassificationResult:
     payload = {"summary": "True", "isbn": isbn}
     r = requests.get('http://classify.oclc.org/classify2/Classify' , params=payload)
     r.raise_for_status()
-    tree = xmltodict.parse(r.text)
+    tree: OrderedDict = xmltodict.parse(r.text)
     _check_classify(tree)
     if "work" in tree['classify']:
         work = tree['classify']['work']
