@@ -51,5 +51,8 @@ export default {
       //   moduleDirectory: 'js_modules'
       // }
     })
-  ]
+  ],
+  watch:{
+    clearScreen: false
+  }
 };
