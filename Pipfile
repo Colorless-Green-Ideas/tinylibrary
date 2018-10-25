@@ -11,10 +11,10 @@ gunicorn = "*"
 requests = "*"
 whitenoise = "*"
 xmltodict = "*"
-Django = "==2.0.5"
+Django = ">2<2.1"
 attrs = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
