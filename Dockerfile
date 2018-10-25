@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.7
 MAINTAINER Jack Laxson <jack@getpizza.cat>
 
 RUN mkdir -p /usr/src/tinylibrary /usr/share/cache/ && \
