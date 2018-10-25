@@ -78,7 +78,7 @@ export class TlScanner extends LitElement {
     }
 
     // Render method should return a `TemplateResult` using the provided lit-html `html` tag function
-    _render() {
+    render() {
         return html`
       <style>
         :host {
