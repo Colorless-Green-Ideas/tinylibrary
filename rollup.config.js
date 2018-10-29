@@ -9,6 +9,7 @@ export default {
     file: 'tinylibrary/static/tinylibrary/bundle.js',
     format: 'es'
   },
+  external: ["turbolinks"],
   plugins: [
     collectSass({}),
     resolve({
