@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html>
 <head>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
@@ -14,6 +14,13 @@
       }
       .content{
         font-size: 18pt;
+      }
+      
+      nav, header{
+        background-color: #DBFFEA;
+      }
+      main{
+        background-color: #F5FFF9;
       }
       {% block css %}
       {% endblock %}
