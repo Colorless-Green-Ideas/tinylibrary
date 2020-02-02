@@ -18,7 +18,7 @@ services:
         volumes:
             - .:/usr/src/tinylibrary
             # - /usr/src/tinylibrary/node_modules
-        command: rollup -wc
+        command: rollup -wc --context window
         tty: true
 
     db:
