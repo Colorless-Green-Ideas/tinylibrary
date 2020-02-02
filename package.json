@@ -3,25 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "@material/button": "^0.35.0",
-    "@material/card": "^0.35.0",
-    "@material/mwc-button": "^0.3.1",
-    "@material/mwc-checkbox": "^0.3.1",
-    "@material/mwc-icon": "^0.3.1",
-    "@polymer/lit-element": "^0.6.2",
-    "quagga": "^0.12.1"
+    "@material/button": "^4.0.0",
+    "@material/card": "^4.0.0",
+    "@material/mwc-button": "^0.12.0",
+    "@material/mwc-checkbox": "^0.12.0",
+    "@material/mwc-icon": "^0.12.0",
+    "@material/mwc-ripple": "^0.12.0",
+    "@material/mwc-textfield": "^0.12.0",
+    "@polymer/lit-element": "^0.7.1",
+    "@webcomponents/webcomponentsjs": "^2.4.1",
+    "quagga": "^0.12.1",
+    "rollup": "^1.31.0"
   },
   "devDependencies": {
-    "eslint": "latest",
+    "@rollup/plugin-node-resolve": "^7.1.0",
+    "eslint": "^6.8.0",
     "eslint-config-google": "^0.9.1",
     "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "rollup-plugin-collect-sass": "^1.0.9",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-sass": "^0.7.2"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sass": "^1.2.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
