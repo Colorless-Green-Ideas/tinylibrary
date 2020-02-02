@@ -9,4 +9,4 @@ class FormMangleTest(TestCase):
     def test_mangle_form(self):
         fact = modelform_factory(Book,fields="__all__")
         x = mangle_form(fact())
-        print x
+        print(x)
