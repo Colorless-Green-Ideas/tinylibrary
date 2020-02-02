@@ -7,3 +7,7 @@ def deps(c):
 @task
 def migrate(c):
     c.run("docker-compose run --rm web poetry run python manage.py migrate")
+
+@task
+def lint(c):
+    c.run("pylint --ignore migrations")
